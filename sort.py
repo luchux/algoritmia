@@ -17,9 +17,44 @@ def insertion_sort(alist):
 
         alist[position] = actual
 
+def merge_sort(alist):
+
+    if len(alist) > 1:
+        mid = len(alist) // 2
+        left = alist[:mid]
+        right = alist[mid:]
+
+        #recursive call to break in half lists until atomic
+        merge_sort(left)
+        merge_sort(right)
+
+        #merging left, right into alist in a sorted way.
+        ileft, iright, imerg = 0, 0, 0
+        while ileft < len(left) and iright < len(right):
+            if left[ileft] < right[iright]:
+                alist[imerg] = left[ileft]
+                ileft += 1
+            else:
+                alist[imerg] = right[iright]
+                iright += 1
+
+            imerg += 1
+
+        while ileft < len(left):
+            alist[imerg] = left[ileft]
+            ileft += 1
+            imerg += 1
+
+        while iright < len(right):
+            alist[imerg] = right[iright]
+            iright += 1
+            imerg += 1
+
+
+
 def main():
     alist = [4, 6, 1, 2, 5, 3]
-    insertion_sort(alist)
+    merge_sort(alist)
     print alist
 
 if __name__ == '__main__':
