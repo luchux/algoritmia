@@ -1,3 +1,4 @@
+#Binary Tree with left child, right child.
 class BinaryTree():
 	def __init__(self, data, left=None, right=None):
 		self.data = data
@@ -7,7 +8,7 @@ class BinaryTree():
 	def __unicode__(self):
 		return self.data
 
-
+#Depth first search.
 def dfs_basic(tree):
 	nodes = []
 
@@ -18,6 +19,7 @@ def dfs_basic(tree):
 
 	return nodes
 
+#Depth first search efficient to retrieve nodes data yielded.
 def dfs_yield(tree):
 	if tree is not None:
 		yield tree.data
@@ -28,6 +30,7 @@ def dfs_yield(tree):
 		for node_data in dfs_yield(tree.right):
 			yield node_data
 
+#Birth first search.
 def bfs_basic(tree):
 	nodes = []
 
@@ -45,6 +48,8 @@ def bfs_basic(tree):
 	return nodes
 
 #array = [16,14,10,8,7,9,3,2,4,1]
+
+#Heap datastructure.
 class Heap():
 	def __init__(self, array):
 		self.array = array
