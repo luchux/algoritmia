@@ -49,6 +49,47 @@ def bfs_basic(tree):
 
 #array = [16,14,10,8,7,9,3,2,4,1]
 
+# Tree: Trie
+class Trie():
+
+	def __init__(self):
+		self.trie = None
+
+	def make_trie(self, words):
+		root = dict()
+		for word in words:
+			current_dict = root
+			for letter in word:
+				current_dict = current_dict.setdefault(letter, {})
+			current_dict = current_dict.setdefault('_end', '_end')
+		self.trie = root
+
+	def in_trie(self, word):
+		current_dict = self.trie
+		for letter in word:
+			if letter in current_dict:
+				current_dict = current_dict[letter]
+			else:
+				return False
+		else:
+			if '_end' in current_dict:
+				return True
+			else:
+				return False
+
+	def in_trie_partial(current_dict,actual_word):
+		pass
+
+	def printme(self):
+		print self.trie
+
+def test_trie():
+	words = ['hola', 'chau', 'hoja']
+	t = Trie()
+	t.make_trie(words)
+	print t.printme()
+
+
 #Heap datastructure.
 class Heap():
 	def __init__(self, array):
@@ -155,4 +196,4 @@ def play_with_heaps():
 
 
 if __name__ == '__main__':
-	play_with_trees()
+	test_trie()
