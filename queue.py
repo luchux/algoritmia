@@ -6,6 +6,10 @@ class Queue():
     def __init__(self, items=[]):
         self.items = items
 
+    def __iter__(self):
+        for item in self.items:
+            yield item
+
     def is_empty(self):
         return self.items == []
 
@@ -19,6 +23,7 @@ class Queue():
 
     def size(self):
         return len(self.items)
+
 
 def testQ():
     q = Queue([1,2])
