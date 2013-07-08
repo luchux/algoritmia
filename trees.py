@@ -87,7 +87,9 @@ def test_trie():
 	words = ['hola', 'chau', 'hoja']
 	t = Trie()
 	t.make_trie(words)
-	print t.printme()
+	if t.in_trie('hoja'):
+		print 'yes'
+
 
 
 #Heap datastructure.
